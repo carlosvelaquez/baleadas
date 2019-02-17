@@ -14,13 +14,14 @@ import logo from './img/logo.png';
 import './App.css';
 
 import {Slide1, Slide2} from './Slides.js';
+import {Cart} from './Cart.js';
 
 
 class App extends Component {
   render() {
      let options = {
             sectionClassName: 'section',
-              anchors: ['inicio', 'ciencia', 'sectionThree'],
+              anchors: ['inicio', 'historia', 'sectionThree'],
               scrollBar: false,
               navigation: true,
               verticalAlign: false,
@@ -40,18 +41,16 @@ class App extends Component {
         Baleadas Conchita
         </Navbar.Brand>
         <Navbar.Collapse className="justify-content-end">
-          <Nav className="justify-content-end">
+          <Nav className="justify-content-end" id="nav">
             <Nav.Link href="#inicio">Inicio</Nav.Link>
-            <Nav.Link href="#ciencia">Ciencia</Nav.Link>
+            <Nav.Link href="#historia">La Baleada</Nav.Link>
           </Nav>
           </Navbar.Collapse>
       </Navbar>
-      
-
+      <Cart/>
         <SectionsContainer className="SectionsContainer" {...options}>
           <Slide1/>
           <Slide2/>
-          <Section color="#E0E4CC">Page 3</Section>
         </SectionsContainer>
       </div>
     );

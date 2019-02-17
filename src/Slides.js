@@ -16,21 +16,12 @@ const Fader = posed.div({
 });
 
 export class Slide1 extends Component {
-  constructor(){
-    super();
-    this.state = {isVisible: false};
-  }
-
-  componentDidMount(){
-    this.setState({isVisible: true});
-  }
-
   render(){
-    const visibility = this.state.isVisible;
-
     return (
-      <Fader className="box" pose={visibility ? 'visible' : 'hidden'}>
       <Section color="#FFFFFF" >
+        <video autoplay muted loop id="myVideo">
+          <source src="rain.mp4" type="video/mp4">
+        </video>
         <Container className="slideContainer" id="mainSlide">
           <Row>
             <Col>
@@ -45,7 +36,6 @@ export class Slide1 extends Component {
           </Row>
         </Container>
       </Section>
-    </Fader>
     );
   }
 }
@@ -69,12 +59,21 @@ export class Slide2 extends Component {
         <Container className="slideContainer nomargin notop">
           <Row className="fullHeight">
             <Col className="slideContentNoTop fullHeight">
-                <h3>La ciencia detrás de</h3>
-                <h1 className="display-4">Una buena baleada</h1>
+                <h3>Amor a primera mordida</h3>
+                <h1 className="display-4">Conoce a la baleada</h1>
 
                 <p>
-                    Lorem ipsum;
+                  La baleada es uno de los platos más representativos de la gastronomía hondureña originada en La Ceiba, norte de Honduras.
                 </p>
+
+                <p>
+                    Normalmente, la receta básica lleva frijoles cocidos machacados o licuados. Esta variedad de frijoles (Phaseolus vulgaris) es originaria de mesoamérica, donde ha sido cultivada por más de diez milenios. Posteriormente se les adiciona queso molido y crema agria (mantequilla) dentro de una tortilla de harina doblada.
+                </p>
+
+                <p>
+                  Cuenta la leyenda que había una señora que acostumbraba a vender tortillas de harina rellenas de frijoles con queso en polvo. Un día ocurrió un tirotero en la zona y una bala impactó a la mujer. La herida no fue de gravedad y la mujer a los días se recuperó y volvió a la venta de su producto. Desde entonces los trabajadores comenzaron a decir vamos a comer donde“la baleada”.
+                </p>
+
             </Col>
             <Col className="fullHeight">
               <img src={b1} id="b1"></img>
