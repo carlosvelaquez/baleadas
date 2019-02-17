@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import './Cart.css';
 
-import {
-  Button
-} from 'react-bootstrap';
-
 export class Cart extends Component {
     constructor(){
         super();
@@ -23,7 +19,7 @@ export class Cart extends Component {
         return(
             <div id="cartwrapper" className={this.state.visible ? "shown" : "hidden"}>
                 <div id="cartflap">
-                    <Button id="showbutton" onClick={this.toggle}>C</Button>
+                    <button id="showbutton" onClick={this.toggle}>C</button>
                 </div>
                 <div id="cart">
                     <h1>Bandeja de Compras</h1>

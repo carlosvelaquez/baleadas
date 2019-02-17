@@ -30,7 +30,7 @@ class App extends Component {
 
     return (
     <div>
-      <Navbar bg="transparent" sticky="top" variant="light" id="navbar">
+      <Navbar bg="transparent" sticky="top" variant="dark" id="navbar">
         <Navbar.Brand href="#home">
           <img
             src={logo}

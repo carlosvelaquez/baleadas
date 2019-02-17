@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 
 import logo from './img/logo.png';
 import b1 from './img/b1.jpg';
-import posed from 'react-pose';
+import video1 from './vid/1.mp4';
 
+import posed from 'react-pose';
 import {Section} from 'react-fullpage';
 
 import {
@@ -18,11 +19,10 @@ const Fader = posed.div({
 export class Slide1 extends Component {
   render(){
     return (
-      <Section color="#FFFFFF" >
-        <video autoplay muted loop id="myVideo">
-          <source src="rain.mp4" type="video/mp4">
-        </video>
-        <Container className="slideContainer" id="mainSlide">
+      <Section color="#FFFFFF" id="mainSlide">
+        < div id = "welcome" >
+        <Container>
+        
           <Row>
             <Col>
               <img src={logo} id="logo" alt="logo" />
@@ -30,11 +30,12 @@ export class Slide1 extends Component {
           </Row>
           <Row>
             <Col>
-              <h1 className="display-2 center">Baleadas Conchita</h1>
+                <h1 className="display-2 center">Baleadas Conchita</h1>
               <h2 className="center">Las mismas baleadas, una nueva experiencia.</h2>
             </Col>
           </Row>
         </Container>
+        </div>
       </Section>
     );
   }
@@ -60,7 +61,7 @@ export class Slide2 extends Component {
           <Row className="fullHeight">
             <Col className="slideContentNoTop fullHeight">
                 <h3>Amor a primera mordida</h3>
-                <h1 className="display-4">Conoce a la baleada</h1>
+                <h1 className="display-4 title">Conoce a la baleada</h1>
 
                 <p>
                   La baleada es uno de los platos más representativos de la gastronomía hondureña originada en La Ceiba, norte de Honduras.
