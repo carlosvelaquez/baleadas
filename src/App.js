@@ -20,7 +20,7 @@ class App extends Component {
   render() {
      let options = {
             sectionClassName: 'section',
-              anchors: ['inicio', '2', 'sectionThree'],
+              anchors: ['inicio', 'ciencia', 'sectionThree'],
               scrollBar: false,
               navigation: true,
               verticalAlign: false,
@@ -42,7 +42,7 @@ class App extends Component {
         <Navbar.Collapse className="justify-content-end">
           <Nav className="justify-content-end">
             <Nav.Link href="#inicio">Inicio</Nav.Link>
-            <Nav.Link href="#2">Slide 2</Nav.Link>
+            <Nav.Link href="#ciencia">Ciencia</Nav.Link>
           </Nav>
           </Navbar.Collapse>
       </Navbar>

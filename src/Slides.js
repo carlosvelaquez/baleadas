@@ -31,7 +31,7 @@ export class Slide1 extends Component {
     return (
       <Fader className="box" pose={visibility ? 'visible' : 'hidden'}>
       <Section color="#FFFFFF" >
-        <Container className="Container" id="mainSlide">
+        <Container className="slideContainer" id="mainSlide">
           <Row>
             <Col>
               <img src={logo} id="logo" alt="logo" />
@@ -66,9 +66,9 @@ export class Slide2 extends Component {
     return (
       <Fader className="box" pose={visibility ? 'visible' : 'hidden'}>
       <Section color="#FFFFFF" >
-        <Container className="Container">
-          <Row>
-            <Col>
+        <Container className="slideContainer nomargin notop">
+          <Row className="fullHeight">
+            <Col className="slideContentNoTop fullHeight">
                 <h3>La ciencia detrás de</h3>
                 <h1 className="display-4">Una buena baleada</h1>
 
@@ -76,7 +76,7 @@ export class Slide2 extends Component {
                     Lorem ipsum;
                 </p>
             </Col>
-            <Col>
+            <Col className="fullHeight">
               <img src={b1} id="b1"></img>
             </Col>
           </Row>

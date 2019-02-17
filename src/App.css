@@ -11,8 +11,21 @@
   width: 100vw;
 }
 
-.Container {
-  padding: 15px;
+.slideContainer {
+  padding: 0;
+  padding-top: 12vh;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.notop {
+  padding-top: 0;
+}
+
+.slideContentNoTop {
+  padding: 50px;
   padding-top: 12vh;
 }
 
@@ -22,6 +35,10 @@
 
 .center {
   text-align: center;
+}
+
+.fullHeight{
+  height: 100%;
 }
 
 #logo {
@@ -39,7 +56,7 @@
 }
 
 #b1 {
-  height: 100vh;
-  width: 50vw;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
