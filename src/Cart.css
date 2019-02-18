@@ -3,7 +3,7 @@
 
     position: fixed;
 
-    width: 30vw;
+    width: 85vmin;
     height: 100vh;
 
     z-index: 100;
@@ -14,11 +14,11 @@
     text-align: center;
     box-shadow: 0 0 15px #424242;
 
-    width: 25vw;
+    width: 75vmin;
     height: 100vh;
     padding: 15px;
 
-    overflow: scroll;
+    overflow: auto;
 }
 
 #cart h1 {
@@ -26,20 +26,23 @@
 }
 
 .shown {
-    left: 71vw;
+    right: 0;
     -webkit-transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .hidden {
-    left: 96vw;
+    right: -75vmin;
     -webkit-transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #cartflap {
-    height: 4vw;
-    width: 4vw;
+    position: relative;
+    top: 15vh;
+
+    height: 10vmin;
+    width: 10vmin;
     background: blue;
     box-shadow: 0 0 15px #424242;
 

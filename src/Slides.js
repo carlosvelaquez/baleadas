@@ -43,7 +43,7 @@ export class Slide1 extends Component {
           <Row>
             <Col>
                 <h1 className="display-2 center">Baleadas Conchita</h1>
-              <h2 className="center">Las mismas baleadas, una nueva experiencia.</h2>
+              <h2 className="center sub">Las mismas baleadas, una nueva experiencia.</h2>
             </Col>
           </Row>
         </Container>
@@ -89,7 +89,7 @@ export class Slide2 extends Component {
 
             </Col>
             <Col className="fullHeight">
-              <img src={b1} id="b1"></img>
+              <img src={b1} id="b1" alt="una baleada"></img>
             </Col>
           </Row>
         </Container>

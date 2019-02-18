@@ -45,25 +45,48 @@
 
 .title {
   color: #EF6C00;
+  font-size: 250%;
 }
 
 .sadPad {
   padding: 0 15px 0 15px;
 }
 
+.display-2{
+  font-size: 400%;
+}
+
+.sub {
+  font-size: 150%;
+}
+
+#welcome {
+  background: white;
+  border-radius: 25px;
+
+  width: 80vmin;
+  max-height: 80vh;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 15vh;
+  box-shadow: 0 0 15px #424242;
+  padding: 15px;
+}
+
 #logo {
   display: block;
-  height: 30vh;
+  height: 30vmin;
   margin-left: auto;
   margin-right: auto;
 }
 
 #navbar {
   position: fixed;
-  height: 10vh;
   overflow: hidden;
   width: 100vw;
-  z-index: 99;
+  z-index: 100;
 
   background: #fc4a1a;
   /* fallback for old browsers */
@@ -88,16 +111,7 @@
     background: url(img/b1.jpg);
 }
 
-#welcome {
-  background: white;
-  border-radius: 25px;
-  width: 60vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15vh;
-  box-shadow: 0 0 15px #424242;
-  padding: 15px;
-}
+
 
 #tabswrapper {
   height: 100%;

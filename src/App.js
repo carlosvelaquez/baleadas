@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import posed from 'react-pose';
 
 import {
   SectionsContainer,
-  Section
 } from 'react-fullpage';
 
 import {
-  Container, Row, Col, Nav, Navbar, Button
+  Nav, Navbar
 } from 'react-bootstrap';
 
 import logo from './img/logo.png';
@@ -52,24 +50,25 @@ class App extends Component {
 
     return (
     <div>
-      <Navbar sticky="top" variant="dark" id="navbar">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" id="navbar">
         <Navbar.Brand href="#home">
-          <img
+        <img
             src={logo}
             height="30"
             className="d-inline-block align-top"
             alt="logo"
           />
-        Baleadas Conchita
-        </Navbar.Brand>
-        <Navbar.Collapse className="justify-content-end">
-          <Nav className="justify-content-end" id="nav">
+        Baleadas Conchita</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
             <Nav.Link href="#inicio">Inicio</Nav.Link>
             <Nav.Link href="#historia">La Baleada</Nav.Link>
             <Nav.Link href="#pedir">Hacer una Orden</Nav.Link>
           </Nav>
-          </Navbar.Collapse>
+        </Navbar.Collapse>
       </Navbar>
+
       <Cart cartContents={this.state.cartContents}/>
         <SectionsContainer className="SectionsContainer" {...options}>
           <Slide1/>
