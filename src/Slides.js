@@ -6,7 +6,12 @@ import b1 from './img/b1.jpg';
 import mantequilla from './img/mantequilla.jpg';
 import queso from './img/queso.jpg';
 import ricotta from './img/ricotta.jpg';
-import video1 from './vid/1.mp4';
+import huevo from './img/huevo.jpg';
+import res from './img/res.jpg';
+import pollo from './img/pollo.jpg';
+import chorizo from './img/chorizo.jpg';
+import platano from './img/platano.jpg';
+import aguacate from './img/aguacate.jpg';
 
 import posed from 'react-pose';
 import {Section} from 'react-fullpage';
@@ -172,10 +177,40 @@ export class Slide3 extends Component {
                         </Container>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <h2>Lorem pipsum 2</h2>
+                        <Container>
+                          <Row>
+                            <Col>
+                              <Ingredient img={aguacate} title="Aguacate"
+                              price={2} add={this.add}/>
+                            </Col>
+                            <Col>
+                              <Ingredient img={platano} title="Platano"
+                              price={3} add={this.add}/>
+                            </Col>
+                            <Col>
+                              <Ingredient img={huevo} title="Huevo"
+                              price={2} add={this.add}/>
+                            </Col>
+                          </Row>
+                        </Container>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <h2>Lorem pipsum 3</h2>
+                        <Container>
+                          <Row>
+                            <Col>
+                              <Ingredient img={res} title="Res"
+                              price={4} add={this.add}/>
+                            </Col>
+                            <Col>
+                              <Ingredient img={pollo} title="Pollo"
+                              price={3} add={this.add}/>
+                            </Col>
+                            <Col>
+                              <Ingredient img={chorizo} title="Chorizo"
+                              price={3} add={this.add}/>
+                            </Col>
+                          </Row>
+                        </Container>
                       </Tab.Pane>
                     </Tab.Content>
                   </Col>
