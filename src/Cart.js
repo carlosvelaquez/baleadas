@@ -40,6 +40,13 @@ export class Preview extends Component {
 }
 
 export class Item extends Component {
+
+    handleDelete(){
+        if (typeof this.props.del === 'function') {
+            this.props.del(this.props.key - 1);
+        }
+    }
+
     render(){
         return(
             <Card>
@@ -49,7 +56,7 @@ export class Item extends Component {
                     <Card.Text>
                     {this.props.body}
                     </Card.Text>
-                    <Button variant="danger" size="sm">Eliminar</Button>
+                    <Button variant="danger" size="sm" onClick={this.handleDelete.bind(this)}>Eliminar</Button>
                 </Card.Body>
                 
             </Card>
@@ -60,7 +67,7 @@ export class Item extends Component {
 export class Cart extends Component {
     constructor(props){
         super(props);
-        
+
         this.state = {
             visible: this.props.shown
         };

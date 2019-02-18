@@ -20,6 +20,7 @@ class App extends Component {
   constructor(){
     super();
     this.sendItem = this.sendItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
 
     this.state = {
       cartContents: [],
@@ -30,7 +31,7 @@ class App extends Component {
   sendItem(title, body, price){
     let arr = this.state.cartContents;
     let name = "Baleada " + counter;
-    arr.push(<Item title={name} body={body} price={price} key={counter}/>);
+    arr.push(<Item title={name} body={body} price={price} key={counter} del={this.deleteItem}/>);
     this.setState({cartContents: arr});
 
     alert("Baleada añadida con exito.");
@@ -40,6 +41,15 @@ class App extends Component {
     });
 
     counter ++;
+  }
+
+  deleteItem(index){
+    var nContents = this.state.cartContents;
+    nContents.shift(index, 1);
+
+    this.setState({
+      cartContents: nContents
+    });
   }
 
   render() {
