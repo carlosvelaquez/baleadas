@@ -58,9 +58,13 @@ export class Item extends Component {
 }
 
 export class Cart extends Component {
-    constructor(){
-        super();
-        this.state = {visible: false};
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            visible: this.props.shown
+        };
+
         this.toggle = this.toggle.bind(this);
     }
 

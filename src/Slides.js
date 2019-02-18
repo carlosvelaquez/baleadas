@@ -13,7 +13,6 @@ import chorizo from './img/chorizo.jpg';
 import platano from './img/platano.jpg';
 import aguacate from './img/aguacate.jpg';
 
-import posed from 'react-pose';
 import {Section} from 'react-fullpage';
 
 import {
@@ -23,10 +22,71 @@ import {
 import {Preview} from './Cart.js';
 import {Ingredient} from './Ingredients.js';
 
-const Fader = posed.div({
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 }
-});
+const ingredientList = {
+  "mantequilla": {
+    title: "Mantequilla",
+    type: "lacteos",
+    img: mantequilla,
+    price: 1
+  },
+
+  "queso": {
+    title: "Queso Rayado",
+    type: "lacteos",
+    img: queso,
+    price: 1
+  },
+
+  "ricotta": {
+    title: "Ricotta",
+    type: "lacteos",
+    img: ricotta,
+    price: 3
+  },
+
+  "aguacate": {
+    title: "Aguacate",
+    type: "acomp",
+    img: aguacate,
+    price: 2
+  },
+
+  "platano": {
+    title: "Platano",
+    type: "acomp",
+    img: platano,
+    price: 3
+  },
+
+  "huevo": {
+    title: "Huevo",
+    type: "acomp",
+    img: huevo,
+    price: 2
+  },
+
+  "res": {
+    title: "Res",
+    type: "carnes",
+    img: res,
+    price: 4
+  },
+
+  "pollo": {
+    title: "Pollo",
+    type: "carnes",
+    img: pollo,
+    price: 3
+  },
+
+  "chorizo": {
+    title: "Chorizo",
+    type: "carnes",
+    img: chorizo,
+    price: 3
+  }
+};
+
 
 export class Slide1 extends Component {
   render(){
@@ -53,6 +113,8 @@ export class Slide1 extends Component {
   }
 }
 
+
+
 export class Slide2 extends Component {
   constructor(){
     super();
@@ -64,10 +126,7 @@ export class Slide2 extends Component {
   }
 
   render(){
-    const visibility = this.state.isVisible;
-
     return (
-      <Fader className="box" pose={visibility ? 'visible' : 'hidden'}>
       <Section color="#FFFFFF" >
         <Container className="slideContainer nomargin notop">
           <Row className="fullHeight">
@@ -94,18 +153,19 @@ export class Slide2 extends Component {
           </Row>
         </Container>
       </Section>
-    </Fader>
     );
   }
 }
 
 export class Slide3 extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
     this.state = {
       title: "Nueva Baleada",
       body: "- Tortilla y Frijoles",
-      price: 10.00
+      price: 10.00,
+      param: ""
     };
 
     this.clean = this.clean.bind(this);
@@ -128,6 +188,15 @@ export class Slide3 extends Component {
   }
 
    render(){
+    var arr = [];
+
+     Object.keys(ingredientList).forEach(function (key) {
+      var val = ingredientList[key].title.toString();
+      arr.push(ingredientList[key]);
+     });
+
+     this.results = arr.map(item => <Col><Ingredient key={item.title} title={item.title} price={item.price} img={item.img} add={this.add}/></Col>);
+
      return (
       <Section color="#FFFFFF">
         <Container className="slideContainer">
@@ -220,10 +289,13 @@ export class Slide3 extends Component {
                           <Row>
                             <Col>
                               <Form inline>
-                                <FormControl type="text" placeholder="Pon el nombre de un ingrediente" className="mr-sm-12" />
-                                <Button variant="success">Buscar</Button>
+                                <FormControl type="text" placeholder="Pon el nombre de un ingrediente" className="mr-sm-12"/>
+                                <Button variant="success" onclick={this.handleSearch}>Buscar</Button>
                               </Form>
                             </Col>
+                          </Row>
+                          <Row>
+                            {this.results}
                           </Row>
                         </Container>
                       </Tab.Pane>
@@ -241,4 +313,30 @@ export class Slide3 extends Component {
       </Section>
      );
    }
+}
+
+export class Slide4 extends Component {
+  render(){
+    return (
+      <Section color="#FFFFFF">
+        <Container className="slideContainer">
+          <Row>
+            <Col>
+              <h3 className="center sub">Mientras mas peligroso el barrio...</h3>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <h1 className="display-3 center title">Mas ricas las baleadas</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              
+            </Col>
+          </Row>
+        </Container>
+      </Section>
+    );
+  }
 }

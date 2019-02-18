@@ -11,7 +11,7 @@ import {
 import logo from './img/logo.png';
 import './App.css';
 
-import {Slide1, Slide2, Slide3} from './Slides.js';
+import {Slide1, Slide2, Slide3, Slide4} from './Slides.js';
 import {Cart, Item} from './Cart.js';
 
 let counter = 1;
@@ -20,9 +20,10 @@ class App extends Component {
   constructor(){
     super();
     this.sendItem = this.sendItem.bind(this);
-    this.test = this.test.bind(this);
+
     this.state = {
-      cartContents: []
+      cartContents: [],
+      cartDisplay: false
     }
   }
 
@@ -31,17 +32,20 @@ class App extends Component {
     let name = "Baleada " + counter;
     arr.push(<Item title={name} body={body} price={price} key={counter}/>);
     this.setState({cartContents: arr});
-    counter ++;
-  }
 
-  test(){
-    this.sendItem("firts", "1", 123);
+    alert("Baleada añadida con exito.");
+
+    this.setState({
+      cartDisplay: true
+    });
+
+    counter ++;
   }
 
   render() {
      let options = {
             sectionClassName: 'section',
-              anchors: ['inicio', 'historia', 'pedir'],
+              anchors: ['inicio', 'historia', 'estudio', 'pedir'],
               scrollBar: false,
               navigation: true,
               verticalAlign: false,
@@ -64,15 +68,17 @@ class App extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="#inicio">Inicio</Nav.Link>
             <Nav.Link href="#historia">La Baleada</Nav.Link>
+            <Nav.Link href="#estudio">Estudios</Nav.Link>
             <Nav.Link href="#pedir">Hacer una Orden</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
-      <Cart cartContents={this.state.cartContents}/>
+        <Cart cartContents={this.state.cartContents} shown={this.state.cartDisplay}/>
         <SectionsContainer className="SectionsContainer" {...options}>
           <Slide1/>
           <Slide2/>
+          <Slide4/>
           <Slide3 send={this.sendItem}/>
         </SectionsContainer>
       </div>
