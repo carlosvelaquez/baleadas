@@ -4,6 +4,28 @@ import { Card, Button } from 'react-bootstrap';
 import b2 from './img/b2.jpg';
 import './Cart.css';
 
+export class Preview extends Component {
+    render(){
+        return(
+            <Card>
+                <Card.Img variant="top" src={b2} />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>
+                    {this.props.body}
+                    </Card.Text>
+                    <Card.Text>
+                    Total: L.{this.props.price}
+                    </Card.Text>
+                    <Button variant="success" size="sm">Añadir a la Bandeja</Button>
+                    <Button variant="danger" size="sm">Limpiar</Button>
+                </Card.Body>
+                
+            </Card>
+        );
+    }
+}
+
 export class Item extends Component {
     render(){
         return(

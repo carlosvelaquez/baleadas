@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 
 import logo from './img/logo.png';
 import b1 from './img/b1.jpg';
+
+import mantequilla from './img/mantequilla.jpg';
+import queso from './img/queso.jpg';
+import ricotta from './img/ricotta.jpg';
 import video1 from './vid/1.mp4';
 
 import posed from 'react-pose';
@@ -11,7 +15,8 @@ import {
   Container, Row, Col, Tab, Nav
 } from 'react-bootstrap';
 
-import {Item} from './Cart.js';
+import {Preview} from './Cart.js';
+import {Ingredient} from './Ingredients.js';
 
 const Fader = posed.div({
   visible: { opacity: 1 },
@@ -125,7 +130,16 @@ export class Slide3 extends Component {
                         <Container>
                           <Row>
                             <Col>
-                              
+                              <Ingredient img={mantequilla} title="Mantequilla"
+                              price={150.00}/>
+                            </Col>
+                            <Col>
+                              <Ingredient img={queso} title="Queso Rayado"
+                              price={150.00}/>
+                            </Col>
+                            <Col>
+                              <Ingredient img={ricotta} title="Ricotta"
+                              price={150.00}/>
                             </Col>
                           </Row>
                         </Container>
@@ -143,7 +157,7 @@ export class Slide3 extends Component {
               </div>
             </Col>
             <Col id="config">
-              <Item title="Tu Baleada"/>
+              <Preview title="Tu Baleada"/>
             </Col>
           </Row>
         </Container>
