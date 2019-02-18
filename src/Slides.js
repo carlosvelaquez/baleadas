@@ -346,25 +346,25 @@ export class Slide4 extends Component {
 
 const data = [
   {
-    name: 'Super Malas', RC: 50, PM: 0, amt: 2400,
+    name: 'Lomas del Guijarro', RC: 50, PM: 0, amt: 2400,
   },
   {
-    name: 'Malas', RC: 100, PM: 50, amt: 2210,
+    name: 'La Hacienda', RC: 100, PM: 50, amt: 2210,
   },
   {
-    name: 'Comestibles', RC: 150, PM: 100, amt: 2290,
+    name: 'Suyapa', RC: 150, PM: 100, amt: 2290,
   },
   {
-    name: 'Buenas', RC: 200, PM: 200, amt: 2000,
+    name: 'El Guanacaste', RC: 200, PM: 200, amt: 2000,
   },
   {
-    name: 'Ricas', RC: 250, PM: 275, amt: 2181,
+    name: 'La Kennedy', RC: 250, PM: 275, amt: 2181,
   },
   {
-    name: 'Riquisimas', RC: 350, PM: 350, amt: 2500,
+    name: '21 de Octubre', RC: 350, PM: 350, amt: 2500,
   },
   {
-    name: 'Deliciosas', RC: 500, PM: 450, amt: 2100,
+    name: 'El Hato', RC: 500, PM: 450, amt: 2100,
   },
 ];
 
