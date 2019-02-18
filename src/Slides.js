@@ -1,4 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+} from 'recharts';
 
 import logo from './img/logo.png';
 import b1 from './img/b1.jpg';
@@ -332,11 +335,61 @@ export class Slide4 extends Component {
           </Row>
           <Row>
             <Col>
-              
+              <Chart/>
             </Col>
           </Row>
         </Container>
       </Section>
+    );
+  }
+}
+
+const data = [
+  {
+    name: 'Super Malas', RC: 50, PM: 0, amt: 2400,
+  },
+  {
+    name: 'Malas', RC: 100, PM: 50, amt: 2210,
+  },
+  {
+    name: 'Comestibles', RC: 150, PM: 100, amt: 2290,
+  },
+  {
+    name: 'Buenas', RC: 200, PM: 200, amt: 2000,
+  },
+  {
+    name: 'Ricas', RC: 250, PM: 275, amt: 2181,
+  },
+  {
+    name: 'Riquisimas', RC: 350, PM: 350, amt: 2500,
+  },
+  {
+    name: 'Deliciosas', RC: 500, PM: 450, amt: 2100,
+  },
+];
+
+export class Chart extends PureComponent {
+  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/xqjtetw0/';
+
+  render() {
+    return (
+      <div className="centerWide">
+        <LineChart
+          width={1100}
+          height={300}
+          data={data}
+          margin={{
+            top: 5, right: 30, left: 20, bottom: 15,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Line type="monotone" dataKey="PM" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="RC" stroke="#82ca9d" />
+        </LineChart>
+      </div>
     );
   }
 }

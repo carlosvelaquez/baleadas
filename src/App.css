@@ -131,3 +131,9 @@
   margin-right: 50px;
   height: 100vmin;
 }
+
+.centerWide {
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
