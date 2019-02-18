@@ -13,7 +13,7 @@ import {
 import logo from './img/logo.png';
 import './App.css';
 
-import {Slide1, Slide2} from './Slides.js';
+import {Slide1, Slide2, Slide3} from './Slides.js';
 import {Cart} from './Cart.js';
 
 
@@ -21,7 +21,7 @@ class App extends Component {
   render() {
      let options = {
             sectionClassName: 'section',
-              anchors: ['inicio', 'historia', 'sectionThree'],
+              anchors: ['inicio', 'historia', 'pedir'],
               scrollBar: false,
               navigation: true,
               verticalAlign: false,
@@ -44,6 +44,7 @@ class App extends Component {
           <Nav className="justify-content-end" id="nav">
             <Nav.Link href="#inicio">Inicio</Nav.Link>
             <Nav.Link href="#historia">La Baleada</Nav.Link>
+            <Nav.Link href="#pedir">Hacer una Orden</Nav.Link>
           </Nav>
           </Navbar.Collapse>
       </Navbar>
@@ -51,6 +52,7 @@ class App extends Component {
         <SectionsContainer className="SectionsContainer" {...options}>
           <Slide1/>
           <Slide2/>
+          <Slide3/>
         </SectionsContainer>
       </div>
     );

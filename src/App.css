@@ -47,6 +47,10 @@
   color: #EF6C00;
 }
 
+.sadPad {
+  padding: 0 15px 0 15px;
+}
+
 #logo {
   display: block;
   height: 30vh;
@@ -85,4 +89,21 @@
   margin-top: 15vh;
   box-shadow: 0 0 15px #424242;
   padding: 15px;
+}
+
+#tabswrapper {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+}
+
+.tab {
+  border: 1px solid #EF6C00;
+  border-radius: 5px;
+}
+
+#config {
+  padding: 0 50px 0 50px;
+  margin-right: 50px;
 }

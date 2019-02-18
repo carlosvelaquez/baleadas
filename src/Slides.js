@@ -8,7 +8,7 @@ import posed from 'react-pose';
 import {Section} from 'react-fullpage';
 
 import {
-  Container, Row, Col, Nav, Navbar
+  Container, Row, Col, Tab, Nav
 } from 'react-bootstrap';
 
 const Fader = posed.div({
@@ -85,4 +85,67 @@ export class Slide2 extends Component {
     </Fader>
     );
   }
+}
+
+export class Slide3 extends Component {
+   render(){
+     return (
+      <Section color="#FFFFFF">
+        <Container className="slideContainer">
+          <Row>
+            <Col>
+            <h4 className="center">Pedir baleadas nunca había sido tan genial</h4>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+            <h1 className="display-4 title center">¡Configura tu Baleada!</h1>
+            </Col>
+          </Row>
+          <br/>
+
+          <Row className="sadPad">
+            <Col sm={7}>
+              <div id="tabswrapper">
+              <Tab.Container defaultActiveKey="first">
+                <Row>
+                  <Col sm={3}>
+                    <Nav variant="pills" className="flex-column">
+                      <Nav.Item>
+                        <Nav.Link eventKey="first">Lacteos</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="second">Vegetales</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="third">Carnes</Nav.Link>
+                      </Nav.Item>
+                    </Nav>
+                  </Col>
+                  <Col sm={9} className="tab">
+                    <Tab.Content>
+                      <Tab.Pane eventKey="first">
+                        <h1>Lorem pipsum</h1>
+                      </Tab.Pane>
+                      <Tab.Pane eventKey="second">
+                        <h1>Lorem pipsum 2</h1>
+                      </Tab.Pane>
+                      <Tab.Pane eventKey="third">
+                        <h1>Lorem pipsum 3</h1>
+                      </Tab.Pane>
+                    </Tab.Content>
+                  </Col>
+                </Row>
+              </Tab.Container>
+              </div>
+            </Col>
+            <Col id="config">
+              <h3 className="center">Tu Baleada</h3>
+              <hr/>
+            </Col>
+          </Row>
+        </Container>
+      </Section>
+     );
+   }
 }

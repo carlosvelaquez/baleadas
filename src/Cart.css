@@ -53,4 +53,13 @@
     background: #EF6C00;
     color: white;
     border: none;
+    transition: .3s;
+}
+
+#showbutton:hover {
+    background: #E65100;
+}
+
+#showbutton:focus{
+    outline: 0;
 }

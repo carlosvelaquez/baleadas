@@ -1,5 +1,26 @@
 import React, { Component } from 'react';
+import { Card, Button } from 'react-bootstrap';
+
+import b2 from './img/b2.jpg';
 import './Cart.css';
+
+export class Item extends Component {
+    render(){
+        return(
+            <Card>
+                <Card.Img variant="top" src={b2} />
+                <Card.Body>
+                    <Card.Title>{this.props.title}</Card.Title>
+                    <Card.Text>
+                    {this.props.body}
+                    </Card.Text>
+                    <Button variant="danger">Eliminar</Button>
+                </Card.Body>
+                
+            </Card>
+        );
+    }
+}
 
 export class Cart extends Component {
     constructor(){
@@ -16,6 +37,7 @@ export class Cart extends Component {
     }
 
     render(){
+        const card = <Item title="Baleada" body="frijoles"/> ;
         return(
             <div id="cartwrapper" className={this.state.visible ? "shown" : "hidden"}>
                 <div id="cartflap">
@@ -24,8 +46,10 @@ export class Cart extends Component {
                 <div id="cart">
                     <h1>Bandeja de Compras</h1>
                     <hr/>
+                    {card}
                 </div>
             </div>
         );
     }
 }
+
