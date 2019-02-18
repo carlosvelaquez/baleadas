@@ -7,17 +7,39 @@ import {
 } from 'react-fullpage';
 
 import {
-  Container, Row, Col, Nav, Navbar
+  Container, Row, Col, Nav, Navbar, Button
 } from 'react-bootstrap';
 
 import logo from './img/logo.png';
 import './App.css';
 
 import {Slide1, Slide2, Slide3} from './Slides.js';
-import {Cart} from './Cart.js';
+import {Cart, Item} from './Cart.js';
 
+let counter = 1;
 
 class App extends Component {
+  constructor(){
+    super();
+    this.sendItem = this.sendItem.bind(this);
+    this.test = this.test.bind(this);
+    this.state = {
+      cartContents: []
+    }
+  }
+
+  sendItem(title, body, price){
+    let arr = this.state.cartContents;
+    let name = "Baleada " + counter;
+    arr.push(<Item title={name} body={body} price={price} key={counter}/>);
+    this.setState({cartContents: arr});
+    counter ++;
+  }
+
+  test(){
+    this.sendItem("firts", "1", 123);
+  }
+
   render() {
      let options = {
             sectionClassName: 'section',
@@ -30,7 +52,7 @@ class App extends Component {
 
     return (
     <div>
-      <Navbar bg="transparent" sticky="top" variant="dark" id="navbar">
+      <Navbar sticky="top" variant="dark" id="navbar">
         <Navbar.Brand href="#home">
           <img
             src={logo}
@@ -48,11 +70,11 @@ class App extends Component {
           </Nav>
           </Navbar.Collapse>
       </Navbar>
-      <Cart/>
+      <Cart cartContents={this.state.cartContents}/>
         <SectionsContainer className="SectionsContainer" {...options}>
           <Slide1/>
           <Slide2/>
-          <Slide3/>
+          <Slide3 send={this.sendItem}/>
         </SectionsContainer>
       </div>
     );

@@ -17,6 +17,8 @@
     width: 25vw;
     height: 100vh;
     padding: 15px;
+
+    overflow: scroll;
 }
 
 #cart h1 {
@@ -62,4 +64,8 @@
 
 #showbutton:focus{
     outline: 0;
+}
+
+#itemWrap {
+    margin: 10px;
 }

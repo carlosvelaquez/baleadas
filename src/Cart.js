@@ -5,6 +5,19 @@ import b2 from './img/b2.jpg';
 import './Cart.css';
 
 export class Preview extends Component {
+    constructor(){
+        super();
+        this.sendItem = this.sendItem.bind(this);
+    }
+
+    sendItem(){
+        if (typeof this.props.send === 'function') {
+            this.props.send(this.props.title, this.props.body, this.props.price);
+        }
+
+        this.props.clean();
+    }
+
     render(){
         return(
             <Card>
@@ -17,8 +30,8 @@ export class Preview extends Component {
                     <Card.Text>
                     Total: L.{this.props.price}
                     </Card.Text>
-                    <Button variant="success" size="sm">Añadir a la Bandeja</Button>
-                    <Button variant="danger" size="sm">Limpiar</Button>
+                    <Button variant="success" onClick={this.sendItem} size="sm">Añadir a la Bandeja</Button>
+                    <Button variant="danger"  onClick={this.props.clean} size="sm">Limpiar</Button>
                 </Card.Body>
                 
             </Card>
@@ -48,7 +61,6 @@ export class Cart extends Component {
     constructor(){
         super();
         this.state = {visible: false};
-
         this.toggle = this.toggle.bind(this);
     }
 
@@ -59,7 +71,6 @@ export class Cart extends Component {
     }
 
     render(){
-        const card = <Item title="Baleada" body="frijoles"/> ;
         return(
             <div id="cartwrapper" className={this.state.visible ? "shown" : "hidden"}>
                 <div id="cartflap">
@@ -68,7 +79,7 @@ export class Cart extends Component {
                 <div id="cart">
                     <h1>Bandeja de Compras</h1>
                     <hr/>
-                    {card}
+                    {this.props.cartContents.map(item => <div className="itemWrap"> {item} </div>)}
                 </div>
             </div>
         );

@@ -5,6 +5,17 @@ import {
 } from 'react-bootstrap';
 
 export class Ingredient extends Component {
+    constructor(){
+        super();
+        this.handleAdd = this.handleAdd.bind(this);
+    }
+
+    handleAdd(){
+        if (typeof this.props.add === 'function') {
+            this.props.add(this.props.title, this.props.price);
+        }
+    }
+
     render(){
         return(
             <Card>
@@ -14,7 +25,7 @@ export class Ingredient extends Component {
                     <Card.Text>
                     {this.props.body}
                     </Card.Text>
-                    <Button size="sm">L. {this.props.price}</Button>
+                    <Button size="sm" onClick={this.handleAdd}>L. {this.props.price}</Button>
                 </Card.Body>
             </Card>
         );

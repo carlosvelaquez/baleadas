@@ -95,6 +95,33 @@ export class Slide2 extends Component {
 }
 
 export class Slide3 extends Component {
+  constructor(){
+    super();
+    this.state = {
+      title: "Nueva Baleada",
+      body: "- Tortilla y Frijoles",
+      price: 10.00
+    };
+
+    this.clean = this.clean.bind(this);
+    this.add = this.add.bind(this);
+  }
+
+  clean(){
+    this.setState({
+      title: "Nueva Baleada",
+        body: "- Tortilla y Frijoles",
+        price: 10.00
+    });
+  }
+
+  add(name, price){
+    this.setState({
+      body: this.state.body + "\n- " + name,
+      price: this.state.price + price
+    });
+  }
+
    render(){
      return (
       <Section color="#FFFFFF">
@@ -117,7 +144,7 @@ export class Slide3 extends Component {
                         <Nav.Link eventKey="first">Lacteos</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Vegetales</Nav.Link>
+                        <Nav.Link eventKey="second">Acompañantes</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link eventKey="third">Carnes</Nav.Link>
@@ -131,15 +158,15 @@ export class Slide3 extends Component {
                           <Row>
                             <Col>
                               <Ingredient img={mantequilla} title="Mantequilla"
-                              price={150.00}/>
+                              price={1} add={this.add}/>
                             </Col>
                             <Col>
                               <Ingredient img={queso} title="Queso Rayado"
-                              price={150.00}/>
+                              price={1} add={this.add}/>
                             </Col>
                             <Col>
                               <Ingredient img={ricotta} title="Ricotta"
-                              price={150.00}/>
+                              price={3} add={this.add}/>
                             </Col>
                           </Row>
                         </Container>
@@ -157,7 +184,7 @@ export class Slide3 extends Component {
               </div>
             </Col>
             <Col id="config">
-              <Preview title="Tu Baleada"/>
+              <Preview title={this.state.title} body={this.state.body} price={this.state.price} send={this.props.send} clean={this.clean}/>
             </Col>
           </Row>
         </Container>
