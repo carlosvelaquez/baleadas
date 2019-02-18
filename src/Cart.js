@@ -14,7 +14,7 @@ export class Item extends Component {
                     <Card.Text>
                     {this.props.body}
                     </Card.Text>
-                    <Button variant="danger">Eliminar</Button>
+                    <Button variant="danger" size="sm">Eliminar</Button>
                 </Card.Body>
                 
             </Card>

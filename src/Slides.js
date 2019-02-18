@@ -11,6 +11,8 @@ import {
   Container, Row, Col, Tab, Nav
 } from 'react-bootstrap';
 
+import {Item} from './Cart.js';
+
 const Fader = posed.div({
   visible: { opacity: 1 },
   hidden: { opacity: 0 }
@@ -94,18 +96,13 @@ export class Slide3 extends Component {
         <Container className="slideContainer">
           <Row>
             <Col>
-            <h4 className="center">Pedir baleadas nunca había sido tan genial</h4>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-            <h1 className="display-4 title center">¡Configura tu Baleada!</h1>
+            <h1 className="display-4 center title">¡Configura tu Baleada!</h1>
             </Col>
           </Row>
           <br/>
 
           <Row className="sadPad">
-            <Col sm={7}>
+            <Col sm={8}>
               <div id="tabswrapper">
               <Tab.Container defaultActiveKey="first">
                 <Row>
@@ -125,13 +122,19 @@ export class Slide3 extends Component {
                   <Col sm={9} className="tab">
                     <Tab.Content>
                       <Tab.Pane eventKey="first">
-                        <h1>Lorem pipsum</h1>
+                        <Container>
+                          <Row>
+                            <Col>
+                              
+                            </Col>
+                          </Row>
+                        </Container>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <h1>Lorem pipsum 2</h1>
+                        <h2>Lorem pipsum 2</h2>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <h1>Lorem pipsum 3</h1>
+                        <h2>Lorem pipsum 3</h2>
                       </Tab.Pane>
                     </Tab.Content>
                   </Col>
@@ -140,8 +143,7 @@ export class Slide3 extends Component {
               </div>
             </Col>
             <Col id="config">
-              <h3 className="center">Tu Baleada</h3>
-              <hr/>
+              <Item title="Tu Baleada"/>
             </Col>
           </Row>
         </Container>
