@@ -19,6 +19,7 @@
     padding: 15px;
 
     overflow: auto;
+    z-index: 2;
 }
 
 #cart h1 {
@@ -50,6 +51,7 @@
     overflow: hidden;
 
     transition: 1s;
+    z-index: 1;
 }
 
 #showbutton {

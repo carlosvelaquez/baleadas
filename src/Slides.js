@@ -17,7 +17,7 @@ import posed from 'react-pose';
 import {Section} from 'react-fullpage';
 
 import {
-  Container, Row, Col, Tab, Nav
+  Container, Row, Col, Tab, Nav, Form, FormControl, Button
 } from 'react-bootstrap';
 
 import {Preview} from './Cart.js';
@@ -154,6 +154,9 @@ export class Slide3 extends Component {
                       <Nav.Item>
                         <Nav.Link eventKey="third">Carnes</Nav.Link>
                       </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="fourth">Buscar</Nav.Link>
+                      </Nav.Item>
                     </Nav>
                   </Col>
                   <Col sm={9} className="tab">
@@ -208,6 +211,18 @@ export class Slide3 extends Component {
                             <Col>
                               <Ingredient img={chorizo} title="Chorizo"
                               price={3} add={this.add}/>
+                            </Col>
+                          </Row>
+                        </Container>
+                      </Tab.Pane>
+                      <Tab.Pane eventKey="fourth">
+                        <Container>
+                          <Row>
+                            <Col>
+                              <Form inline>
+                                <FormControl type="text" placeholder="Pon el nombre de un ingrediente" className="mr-sm-12" />
+                                <Button variant="success">Buscar</Button>
+                              </Form>
                             </Col>
                           </Row>
                         </Container>
