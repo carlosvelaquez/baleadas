@@ -137,3 +137,11 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.ingMax {
+  max-height: 40vh;
+}
+
+.autoOver {
+  overflow: auto;
+}

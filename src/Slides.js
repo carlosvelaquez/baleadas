@@ -160,6 +160,8 @@ export class Slide2 extends Component {
   }
 }
 
+var param = "";
+
 export class Slide3 extends Component {
   constructor(props){
     super(props);
@@ -168,11 +170,21 @@ export class Slide3 extends Component {
       title: "Nueva Baleada",
       body: "- Tortilla y Frijoles",
       price: 10.00,
-      param: ""
+      param: "m"
     };
 
     this.clean = this.clean.bind(this);
     this.add = this.add.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch(){
+    var param2 = prompt("Ingrese parametro", "");
+    param = this.state.param;
+
+    this.setState({
+      param: param2
+    });
   }
 
   clean(){
@@ -195,14 +207,17 @@ export class Slide3 extends Component {
 
      Object.keys(ingredientList).forEach(function (key) {
       var val = ingredientList[key].title.toString();
-      arr.push(ingredientList[key]);
+
+      if (val.includes(param)){
+        arr.push(ingredientList[key]);
+      }
      });
 
-     this.results = arr.map(item => <Col><Ingredient key={item.title} title={item.title} price={item.price} img={item.img} add={this.add}/></Col>);
+     this.results = arr.map(item => <Col><Ingredient className="ingMax" key={item.title} title={item.title} price={item.price} img={item.img} add={this.add}/></Col>);
 
      return (
       <Section color="#FFFFFF">
-        <Container className="slideContainer">
+        <Container className="slideContainer autoOver">
           <Row>
             <Col>
             <h1 className="display-4 center title">¡Configura tu Baleada!</h1>
@@ -292,8 +307,7 @@ export class Slide3 extends Component {
                           <Row>
                             <Col>
                               <Form inline>
-                                <FormControl type="text" placeholder="Pon el nombre de un ingrediente" className="mr-sm-12"/>
-                                <Button variant="success" onclick={this.handleSearch}>Buscar</Button>
+                                <Button variant="success" onClick={this.handleSearch}>Buscar</Button>
                               </Form>
                             </Col>
                           </Row>
