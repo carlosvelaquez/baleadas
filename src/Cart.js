@@ -85,12 +85,16 @@ export class Cart extends Component {
         return(
             <div id="cartwrapper" className={this.state.visible ? "shown" : "hidden"}>
                 <div id="cartflap">
-                    <button id="showbutton" onClick={this.toggle}></button>
+                    <button id="showbutton" onClick={this.toggle}><i class="fa fa-shopping-cart" aria-hidden="true"/></button>
                 </div>
                 <div id="cart">
                     <h1>Bandeja de Compras</h1>
                     <hr/>
                     {this.props.cartContents.map(item => <div className="itemWrap"> {item} </div>)}
+                    <div id="buyContainer">
+                        <Button id="buyButton" variant="success">Realizar Orden</Button> 
+                    </div>
+
                 </div>
             </div>
         );

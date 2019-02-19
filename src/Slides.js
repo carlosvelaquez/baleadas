@@ -1,6 +1,6 @@
 import React, {Component, PureComponent} from 'react';
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip
 } from 'recharts';
 
 import logo from './img/logo.png';
@@ -19,7 +19,7 @@ import aguacate from './img/aguacate.jpg';
 import {Section} from 'react-fullpage';
 
 import {
-  Container, Row, Col, Tab, Nav, Form, FormControl, Button
+  Container, Row, Col, Tab, Nav, Form, Button
 } from 'react-bootstrap';
 
 import {Preview} from './Cart.js';

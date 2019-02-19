@@ -24,7 +24,6 @@
 
 #cart h1 {
     font-size: 20px;
-    font-family: "Font Awesome 5 Free";
 }
 
 .shown {
@@ -56,6 +55,7 @@
 }
 
 #showbutton {
+    font-family: "Font Awesome 5 Free";
     height: 100%;
     width: 100%;
     background: #EF6C00;
@@ -74,4 +74,15 @@
 
 #itemWrap {
     margin: 10px;
+}
+
+#buyContainer {
+    position: absolute;
+    height: 10vh;
+    width: 80%;
+    bottom: 0;
+}
+
+#buyButton {
+    width: 100%;
 }
