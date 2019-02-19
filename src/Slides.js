@@ -179,7 +179,7 @@ export class Slide3 extends Component {
   }
 
   handleSearch(){
-    var param2 = prompt("Ingrese parametro", "");
+    var param2 = prompt("Ingrese parametro de busqueda", "");
     param = this.state.param;
 
     this.setState({
@@ -206,9 +206,9 @@ export class Slide3 extends Component {
     var arr = [];
 
      Object.keys(ingredientList).forEach(function (key) {
-      var val = ingredientList[key].title.toString();
+      var val = ingredientList[key].title.toString().toLowerCase();
 
-      if (val.includes(param)){
+      if (val.includes(param.toLowerCase())){
         arr.push(ingredientList[key]);
       }
      });
@@ -360,25 +360,25 @@ export class Slide4 extends Component {
 
 const data = [
   {
-    name: 'Lomas del Guijarro', RC: 50, PM: 0, amt: 2400,
+    name: 'Lomas del Guijarro', iRC: 50, iPM: 0, amt: 2400,
   },
   {
-    name: 'La Hacienda', RC: 100, PM: 50, amt: 2210,
+    name: 'La Hacienda', iRC: 100, iPM: 50, amt: 2210,
   },
   {
-    name: 'Suyapa', RC: 150, PM: 100, amt: 2290,
+    name: 'Suyapa', iRC: 150, iPM: 100, amt: 2290,
   },
   {
-    name: 'El Guanacaste', RC: 200, PM: 200, amt: 2000,
+    name: 'El Guanacaste', iRC: 200, iPM: 200, amt: 2000,
   },
   {
-    name: 'La Kennedy', RC: 250, PM: 275, amt: 2181,
+    name: 'La Kennedy', iRC: 250, iPM: 275, amt: 2181,
   },
   {
-    name: '21 de Octubre', RC: 350, PM: 350, amt: 2500,
+    name: '21 de Octubre', iRC: 350, iPM: 350, amt: 2500,
   },
   {
-    name: 'El Hato', RC: 500, PM: 450, amt: 2100,
+    name: 'El Hato', iRC: 500, iPM: 450, amt: 2100,
   },
 ];
 
@@ -400,8 +400,8 @@ export class Chart extends PureComponent {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Line type="monotone" dataKey="PM" stroke="#8884d8" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="RC" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="iPM" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="iRC" stroke="#82ca9d" />
         </LineChart>
       </div>
     );
