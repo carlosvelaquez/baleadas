@@ -73,12 +73,17 @@ export class Cart extends Component {
         };
 
         this.toggle = this.toggle.bind(this);
+        this.handleBuy = this.handleBuy.bind(this);
     }
 
     toggle() {
         this.setState({
             visible: !this.state.visible
         });
+    }
+
+    handleBuy() {
+        alert("Ahora nos debe su alma.");
     }
 
     render(){
@@ -92,7 +97,7 @@ export class Cart extends Component {
                     <hr/>
                     {this.props.cartContents.map(item => <div className="itemWrap"> {item} </div>)}
                     <div id="buyContainer">
-                        <Button id="buyButton" variant="success">Realizar Orden</Button> 
+                        <Button id="buyButton" variant="success" onClick={this.handleBuy}>Realizar Orden</Button> 
                     </div>
 
                 </div>
