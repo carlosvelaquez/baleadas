@@ -85,7 +85,7 @@ export class Cart extends Component {
         return(
             <div id="cartwrapper" className={this.state.visible ? "shown" : "hidden"}>
                 <div id="cartflap">
-                    <button id="showbutton" onClick={this.toggle}>C</button>
+                    <button id="showbutton" onClick={this.toggle}></button>
                 </div>
                 <div id="cart">
                     <h1>Bandeja de Compras</h1>
