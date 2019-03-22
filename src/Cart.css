@@ -72,6 +72,10 @@
     outline: 0;
 }
 
+#itemContainer {
+    margin-bottom: 12vh;
+}
+
 #itemWrap {
     margin: 10px;
 }

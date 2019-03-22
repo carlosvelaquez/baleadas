@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 
 import b2 from './img/b2.jpg';
 import './Cart.css';
@@ -69,11 +69,24 @@ export class Cart extends Component {
         super(props);
 
         this.state = {
-            visible: this.props.shown
+            visible: props.shown
         };
 
         this.toggle = this.toggle.bind(this);
         this.handleBuy = this.handleBuy.bind(this);
+    }
+
+    componentWillReceiveProps(props){
+        if (props.shown !== this.state.visible)
+            this.toggle();
+
+        if (props.user) {
+            props.db.collection("carritos").doc(props.user.uid).set({
+                cartItems: props.cartItems
+            }).then(function () {
+                console.log("Cart updated");
+            });
+        }
     }
 
     toggle() {
@@ -83,19 +96,46 @@ export class Cart extends Component {
     }
 
     handleBuy() {
-        alert("Ahora nos debe su alma.");
+        if (this.props.cartContents.length <= 0) {
+            alert("El carrito está vacío, debes añadir al menos una baleada.");
+        }else{
+            this.props.db.collection("ordenes").add({user: this.props.user.uid, cartItems: this.props.cartItems}).then(function () {
+                alert("Orden procesada exitosamente");
+            }).catch(function (error) {
+                console.error("Error añadiendo orden: ", error);
+            });
+
+            this.props.clear();
+        }        
     }
 
     render(){
-        return(
+       if (this.props.user) {
+            return(
             <div id="cartwrapper" className={this.state.visible ? "shown" : "hidden"}>
                 <div id="cartflap">
-                    <button id="showbutton" onClick={this.toggle}><i class="fa fa-shopping-cart" aria-hidden="true"/></button>
+                    <button id="showbutton" onClick={this.toggle}><i className="fa fa-shopping-cart" aria-hidden="true"/></button>
                 </div>
                 <div id="cart">
-                    <h1>Bandeja de Compras</h1>
+                    <Container>
+                        <Row>
+                            <Col sm={6}>
+                                <h5>¡Hola {this.props.user.displayName}!</h5>
+                            </Col>
+                            <Col sm={6}>
+                                <Button variant="danger" onClick={this.props.signOut}>Cerrar Sesión</Button>
+                            </Col>
+                        </Row>
+                    </Container>
+
                     <hr/>
-                    {this.props.cartContents.map(item => <div className="itemWrap"> {item} </div>)}
+                    
+                    <h1>Tu Bandeja de Compras</h1>
+                    <hr/>
+                    <div id="itemContainer">
+                        {this.props.cartContents.map(item => <div className="itemWrap"> {item} </div>)}
+                    </div>
+                    
                     <div id="buyContainer">
                         <Button id="buyButton" variant="success" onClick={this.handleBuy}>Realizar Orden</Button> 
                     </div>
@@ -103,6 +143,21 @@ export class Cart extends Component {
                 </div>
             </div>
         );
+       }else{
+           return(
+               <div id="cartwrapper" className={this.state.visible ? "shown" : "hidden"}>
+                <div id="cartflap">
+                    <button id="showbutton" onClick={this.toggle}><i className="fa fa-shopping-cart" aria-hidden="true"/></button>
+                </div>
+                <div id="cart">
+                    <h2>Necesitas iniciar sesión para hacer una orden</h2>
+                    <div id="firebaseui-auth-container"></div>
+                    <div id="sign-in-status"></div>
+                    <div id="account-details"></div>
+                </div>
+                </div>
+           );
+       }
     }
 }
 

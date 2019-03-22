@@ -168,7 +168,7 @@ export class Slide3 extends Component {
 
     this.state = {
       title: "Nueva Baleada",
-      body: "- Tortilla y Frijoles",
+      body: "Tortilla, Frijoles",
       price: 10.00,
       param: "m"
     };
@@ -190,14 +190,14 @@ export class Slide3 extends Component {
   clean(){
     this.setState({
       title: "Nueva Baleada",
-        body: "- Tortilla y Frijoles",
+        body: "Tortilla, Frijoles",
         price: 10.00
     });
   }
 
   add(name, price){
     this.setState({
-      body: this.state.body + "\n- " + name,
+      body: this.state.body + ", " + name,
       price: this.state.price + price
     });
   }
